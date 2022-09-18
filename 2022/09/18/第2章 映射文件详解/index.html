@@ -1,0 +1,1412 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>第2章 映射文件详解 | ISDAY</title>
+        <meta name="author" content="ISDAY">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="avatar/avatar.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ISDAY</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;ISDAY</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>第2章 映射文件详解 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+        
+        <span class="category">
+            <a href="/categories/SSM/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                SSM
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/SSM/" style="color: #03a9f4">
+                    SSM
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/MyBatis/" style="color: #03a9f4">
+                    MyBatis
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="第2章-映射文件详解"><a href="#第2章-映射文件详解" class="headerlink" title="第2章 映射文件详解"></a>第2章 映射文件详解</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a><span class="underline">引入</span></h2><p>通过前面的学习，我们对MyBatis有了初步认识，MyBatis的三个基本要素：</p>
+<p>（1）MyBatis核心的接口和类</p>
+<p>（2）MyBatis核心配置文件（mybatis-config.xml）</p>
+<p>（3）SQL映射文件（mapper.xml）</p>
+<p>MyBatis的核心接口和类、配置文件在前面已经讲解了，那么本章再来详细讲解映射文件。</p>
+<p>映射文件中需要掌握的部分就是：常用的元素（标签）、常用元素的属性以及SQL语句。</p>
+<p>在映射文件中，可以编写以下的顶级元素标签：</p>
+<pre><code class="xml">cache – 该命名空间的缓存配置。
+
+cache-ref – 引用其它命名空间的缓存配置。
+
+resultMap – 描述如何从数据库结果集中加载对象，是最复杂也是最强大的元素。
+
+parameterMap – 老式风格的参数映射。此元素已被废弃，并可能在将来被移除！请使用行内参数映射。文档中不会介绍此元素。
+
+sql – 可被其它语句引用的可重用语句块。
+
+insert – 映射插入语句。
+
+update – 映射更新语句。
+
+delete – 映射删除语句。
+
+select – 映射查询语句。
+</code></pre>
+<p>在每个顶级元素标签中可以添加很多个属性，具体如下：</p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>在命名空间中唯一的标识符，可以被用来引用这条语句。</td>
+</tr>
+<tr>
+<td><code>parameterType</code></td>
+<td>将会传入这条语句的参数的类全限定名或别名。这个属性是可选的，因为 MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参 数，默认值为未设置（unset）。</td>
+</tr>
+<tr>
+<td><code>parameterMap</code></td>
+<td>用于引用外部 parameterMap 的属性，目前已被废弃。请使用行内参数 映射和 parameterType 属性。</td>
+</tr>
+<tr>
+<td><code>flushCache</code></td>
+<td>将其设置为 true 后，只要语句被调用，都会导致本地缓存和二级缓存被 清空，默认值：（对 insert、update 和 delete 语句）true。</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>这个设置是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。 默认值为未设置（unset）（依赖数据库驱动）。</td>
+</tr>
+<tr>
+<td><code>statementType</code></td>
+<td>这个设置是在抛出异常之前，驱动程序等待数据库返回请求结果的秒数。 默认值为未设置（unset）（依赖数据库驱动）。</td>
+</tr>
+<tr>
+<td><code>useGeneratedKeys</code></td>
+<td>（仅适用于 insert 和 update）这会令 MyBatis 使用 JDBC 的 getGeneratedKeys 方法来取出由数据库内部生成的主键（比如：像 MySQL 和 SQL Server 这样的关系型数据库管理系统的自动递增字段）， 默认值：false。</td>
+</tr>
+<tr>
+<td><code>keyProperty</code></td>
+<td>（仅适用于 insert 和 update）指定能够唯一识别对象的属性，MyBatis 会使用 getGeneratedKeys 的返回值或 insert 语句的 selectKey 子元素设 置它的值，默认值：未设置（ unset ）。如果生成列不止一个，可以用逗 号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td><code>keyColumn</code></td>
+<td>（仅适用于 insert 和 update）设置生成键值在表中的列名，在某些数据 库（像 PostgreSQL）中，当主键列不是表中的第一列的时候，是必须设 置的。如果生成列不止一个，可以用逗号分隔多个属性名称。</td>
+</tr>
+<tr>
+<td><code>databaseId</code></td>
+<td>如果配置了数据库厂商标识（databaseIdProvider），MyBatis 会加载所 有不带 databaseId 或匹配当前 databaseId 的语句；如果带和不带的语 句都有，则不带的会被忽略</td>
+</tr>
+</tbody></table>
+<p>以上标签属性不需要死记硬背，因为后面我们会慢慢使用它们，所以现在只需要有一个印象即可。</p>
+<hr>
+<h1 id="预准备"><a href="#预准备" class="headerlink" title="预准备"></a><span class="underline">预准备</span></h1><p><strong>我们在开始讲解之前，先在Navicat中导入数据库文件：myemployees，搭建好数据库。</strong></p>
+<p><strong>然后再搭建好我们的mybatis环境：</strong></p>
+<p><strong>步骤一：创建maven项目，pom.xml文件的代码如下:</strong></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0
+
+http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    
+
+    &lt;groupId&gt;org.example&lt;/groupId&gt;
+
+    &lt;artifactId&gt;MyBatis_02_Mapper映射文件详解&lt;/artifactId&gt;
+
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;dependencies&gt;
+
+    
+
+        &lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;
+
+        &lt;dependency&gt;
+
+            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+
+            &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+
+            &lt;version&gt;3.5.6&lt;/version&gt;
+
+        &lt;/dependency&gt;
+
+        &lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;
+
+        &lt;dependency&gt;
+
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+
+            &lt;version&gt;8.0.16&lt;/version&gt;
+
+        &lt;/dependency&gt;
+
+        &lt;!-- https://mvnrepository.com/artifact/log4j/log4j --&gt;
+
+        &lt;dependency&gt;
+
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+
+            &lt;version&gt;1.2.17&lt;/version&gt;
+
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+
+            &lt;version&gt;4.12&lt;/version&gt;
+
+            &lt;scope&gt;test&lt;/scope&gt;
+
+        &lt;/dependency&gt;
+
+   &lt;/dependencies&gt;
+
+&lt;/project&gt;
+</code></pre>
+<p><strong>步骤二：创建log4j.properties，配置log4j用于记录mybatis的日志，方便后面查看BUG、缓存等，十分方便。</strong></p>
+<pre><code class="properties">log4j.rootLogger=DEBUG,Console
+
+#Console
+
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+
+log4j.appender.console.Target=System.out
+
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+
+log4j.appender.Console.layout.ConversionPattern=%d [%t] %-5p [%c] - %m%n
+
+log4j.logger.org.apache=ERROR
+
+log4j.logger.org.mybatis=ERROR
+
+log4j.logger.org.springframework=ERROR
+
+#这个需要
+
+log4j.logger.log4jdbc.debug=ERROR
+
+log4j.logger.com.gk.mapper=ERROR
+
+log4j.logger.jdbc.audit=ERROR
+
+log4j.logger.jdbc.resultset=ERROR
+
+#这个打印SQL语句非常重要
+
+log4j.logger.jdbc.sqlonly=DEBUG
+
+log4j.logger.jdbc.sqltiming=ERROR
+
+log4j.logger.jdbc.connection=FATAL
+</code></pre>
+<p><strong>步骤三：创建db.properties文件，存放数据库信息</strong></p>
+<pre><code class="properties">driver=com.mysql.cj.jdbc.Driver
+
+url=jdbc:mysql://localhost:3306/mybatis?serverTimezone=GMT&amp;useUnicode=true&amp;characterEncoding=utf8
+
+username=root
+
+password=mysql0917
+</code></pre>
+<p><strong>步骤四：编写配置文件</strong></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+
+&lt;!DOCTYPE configuration
+
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+
+&lt;configuration&gt;
+
+    
+
+    &lt;!-- 引入外部db.properties --&gt;
+
+    &lt;properties resource=&quot;db.properties&quot;&gt;&lt;/properties&gt;
+
+    
+
+    &lt;!-- settings用来控制mybatis运行时的行为，是mybatis中的重要配置 --&gt;
+
+    &lt;settings&gt;
+
+        &lt;!-- 设置MyBatis支持Log4j --&gt;
+
+        &lt;setting name=&quot;logImpl&quot; value=&quot;LOG4J&quot;/&gt;
+
+    &lt;/settings&gt;
+
+    
+
+    &lt;!-- 配置指定包路径下，所有类的别名 --&gt;
+
+    &lt;typeAliases&gt;
+
+        &lt;package name=&quot;com.sys.bean&quot;/&gt;
+
+    &lt;/typeAliases&gt;
+
+    
+
+    &lt;!-- 环境配置 --&gt;
+
+    &lt;environments default=&quot;development&quot;&gt;
+
+        &lt;!-- id：表示不同环境的名称 --&gt;
+
+        &lt;environment id=&quot;development&quot;&gt;
+
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+
+                &lt;!-- 使用$&#123;&#125;来引入外部变量 --&gt;
+
+                &lt;property name=&quot;driver&quot; value=&quot;$&#123;driver&#125;&quot;/&gt;
+
+                &lt;property name=&quot;url&quot; value=&quot;$&#123;url&#125;&quot;/&gt;
+
+                &lt;property name=&quot;username&quot; value=&quot;$&#123;username&#125;&quot;/&gt;
+
+                &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;
+
+            &lt;/dataSource&gt;
+
+        &lt;/environment&gt;
+
+    &lt;/environments&gt;
+
+    
+
+    &lt;!-- 指定sql所适用的数据库 --&gt;
+
+    &lt;databaseIdProvider type=&quot;DB_VENDOR&quot;&gt;
+
+        &lt;property name=&quot;MySQL&quot; value=&quot;mysql&quot;/&gt;
+
+        &lt;property name=&quot;Oracle&quot; value=&quot;oracle&quot;/&gt;
+
+    &lt;/databaseIdProvider&gt;
+
+    
+
+    &lt;!-- 批量注册mapper映射文件，使用注解编写SQL语句 --&gt;
+
+    &lt;mappers&gt;
+
+    &lt;package name=&quot;com.sys.mapper&quot;/&gt;
+
+    &lt;/mappers&gt;
+
+&lt;/configuration&gt;
+</code></pre>
+<p><strong>步骤五：按照配置文件的</strong><code>&lt;typeAliases&gt;</code><strong>和</strong><code>&lt;mappers&gt;</code><strong>创建好对应的包</strong></p>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705182012704-16570249044113.png" alt="image-20220705182012704"></p>
+<h1 id="一、SELECT之-关于参数传递的问题"><a href="#一、SELECT之-关于参数传递的问题" class="headerlink" title="一、SELECT之 关于参数传递的问题"></a><span class="underline">一、SELECT之 关于参数传递的问题</span></h1><p>在前面的例子当中，MyBatis会将 Mapper接口方法中的参数值 传递给 mapper映射文件中sql语句，然后会进行sql语句的拼接，获得一个完整的sql语句：</p>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705143659689-16570248922011.png" alt="image-20220705143659689"></p>
+<h2 id="在参数传递的时候，我们分为以下几种情况讨论下："><a href="#在参数传递的时候，我们分为以下几种情况讨论下：" class="headerlink" title="在参数传递的时候，我们分为以下几种情况讨论下："></a>在参数传递的时候，我们分为以下几种情况讨论下：</h2><h2 id="1、当接口方法的参数有且仅有一个时"><a href="#1、当接口方法的参数有且仅有一个时" class="headerlink" title="1、当接口方法的参数有且仅有一个时"></a>1、当接口方法的参数有且仅有一个时</h2><ol>
+<li><p><strong>若为基本数据类型、字符串，sql语句中参数：#{参数名} mapper接口方法：</strong></p>
+<pre><code class="java">/**
+ * 根据id查询员工的信息
+ * @param id
+ * @retuen 
+ */
+
+ Employee findEmpById( int id );
+</code></pre>
+</li>
+</ol>
+<p><strong>mapper映射文件：</strong></p>
+<pre><code>&lt;select id=&quot;findEmpById&quot; parameterType=&quot;int&quot; resultType=&quot;Employee&quot;&gt;
+    SELECT * FROM employees WHERE employee_id = #&#123;id&#125;
+&lt;/select&gt;
+</code></pre>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705143622329-16570250270737.png" alt="image-20220705143622329"></p>
+<p>&#x3D;&#x3D;<strong>在#{}中，填写形参的名字即可。</strong>&#x3D;&#x3D;</p>
+<p><strong>测试代码：</strong></p>
+<pre><code class="java">@Test
+public void testFindEmpById()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    // 这里的实参101就会传递到sql语句中进行拼接 
+    Employee emp = mapper.findEmpById(101); 
+    System.out.println( emp ); 
+    sqlSession.close();
+&#125;
+</code></pre>
+<ol start="2">
+<li><strong>若为引用数据类型，sql语句中参数：#{该类的属性名}</strong></li>
+</ol>
+<p>​		我们还可以将 <strong>需要拼接到sql语句中的数据</strong> 封装进我们的对象当中。这种方式也可以解决多个参数传递的问题，当然主流方式在				后面的第二种情况中。</p>
+<p><strong>mapper接口方法：</strong></p>
+<pre><code>/**
+ *根据id查询指定的员工
+ *
+ *我们也可以将可以使用引用类型作为参数
+ *该类型的对象中存放的就是：需要拼接到sql的数据
+ *@param employee
+ *@return
+ */
+Employee findEmpById2( Employee employee );
+</code></pre>
+<p><strong>mapper映射文件：</strong></p>
+<pre><code>&lt;select id=&quot;findEmpById2&quot; resultType=&quot;Employee&quot;&gt;
+    SELECT * FROM employees WHERE employee_id = #&#123;employee_id&#125;
+&lt;/select&gt;
+</code></pre>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705144207673-16570250447229.png" alt="image-20220705144207673"></p>
+<p>&#x3D;&#x3D;在#{}中，填写指定类型对象中的属性名即可。&#x3D;&#x3D;</p>
+<p><strong>测试代码：</strong></p>
+<pre><code>@Test
+public void testFindEmpById2()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    // 创建一个Employee对象
+    Employee employee = new Employee();
+    // 将需要拼接到sql语句中的数据存放到对象当中
+    employee.setEmployee_id(101);
+    // 将该对象作为实参传递
+    Employee emp = mapper.indEmpById2( employee ); System.out.println( emp );
+    sqlSession.close();
+&#125;
+</code></pre>
+<h2 id="2、当接口方法的参数有多个时"><a href="#2、当接口方法的参数有多个时" class="headerlink" title="2、当接口方法的参数有多个时"></a>2、当接口方法的参数有多个时</h2><p>在这种情况下，就不能按照第一种情况的第(1)部分写了，当然 第(2)部分提到的：<strong>将 需要拼接到sql语句中的数据 封装进对象</strong>是可以解决这种情况的，但是这种方法适用面不广泛。现在主流的方式：使用 @Param注解。</p>
+<p>现在，我们先来看看MyBatis是如何获取参数值的：</p>
+<p>MyBatis在处理接口方法的多个参数的时候，会将这些参数封装到一个map中，此时map中的 key就是arg0、arg1、param1、param2这些值，但是很明显，这样的传值方式不是很友好，我 们也不知道arg0、arg1等key所对应的值是什么，很不方便。所以，我们可以采用 @Param注解来设置 map中的key值，这样就很方便了！！！</p>
+<p>若不使用@Param注解，则会抛出如下异常：</p>
+<p>&#x3D;&#x3D;Cause: org.apache.ibatis.binding.BindingException:Parameter &#39;fName&#39; not found. Available parameters are [arg1, arg0, param1, param2]&#x3D;&#x3D;</p>
+<p>我们现在来看看这个注解怎么使用：</p>
+<p><strong>mapper接口方法：</strong></p>
+<pre><code>/**
+ *根据姓、名查询员工的信息
+ *@param fName：名
+ *@param lName：姓
+ *@return
+ */
+Employee findEmpByNames(@Param(&quot;fN&quot;) String fName, @Param(&quot;lN&quot;)String lName);
+</code></pre>
+<p><strong>mapper映射文件：</strong></p>
+<pre><code>&lt;select id=&quot;findEmpByNames&quot; resultType=&quot;Employee&quot;&gt;
+    SELECT * FROM employees WHERE first_name = #&#123;fN&#125; AND last_name = #&#123;lN&#125;;
+&lt;/select&gt;
+</code></pre>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705144431072-165702506166211.png" alt="image-20220705144431072"></p>
+<p><strong>测试代码：</strong></p>
+<pre><code>@Test
+public void testFindEmpByNames()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class); 
+    Employee emp = mapper.findEmpByNames(&quot;Steven&quot;, &quot;K_ing&quot;); 
+    System.out.println( emp );
+    sqlSession.close();
+&#125;
+</code></pre>
+<h2 id="3、使用map来传递参数"><a href="#3、使用map来传递参数" class="headerlink" title="3、使用map来传递参数"></a>3、使用map来传递参数</h2><p>​	既然MyBatis使用自带的map集合来存放参数值，那么我们也可以将参数存放在map集合中，此时依然是直接使用#{key}来获取具			体的参数值。</p>
+<p>​	<strong>mapper接口方法：</strong></p>
+<pre><code>/**
+ *使用map来传递参数
+ *@param map
+ *@return
+ */
+Employee findEmpByMap(Map&lt;String, String&gt; map);
+</code></pre>
+<p><strong>mapper映射文件：</strong></p>
+<pre><code class="xml">&lt;select id=&quot;findEmpByMap&quot; resultType=&quot;Employee&quot;&gt;
+    SELECT * FROM employees WHERE first_name = #&#123;first_name&#125; AND last_name = #&#123;last_name&#125;;
+&lt;/select&gt;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ISDAY/FigureBed/image-20220705144606706.png" alt="image-20220705144606706"></p>
+<p><strong>测试方法：</strong></p>
+<pre><code>@Test
+public void testFindEmpByMap()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class); 
+    HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); 
+    map.put(&quot;first_name&quot;, &quot;Steven&quot;);
+    map.put(&quot;last_name&quot;, &quot;K_ing&quot;);
+    Employee emp = mapper.findEmpByMap(map); 
+    System.out.println( emp ); 
+    sqlSession.close();
+&#125;
+</code></pre>
+<h1 id="二、SELECT之-获取参数拼接到SQL语句的问题"><a href="#二、SELECT之-获取参数拼接到SQL语句的问题" class="headerlink" title="二、SELECT之 获取参数拼接到SQL语句的问题"></a><span class="underline">二、SELECT之 获取参数拼接到SQL语句的问题</span></h1><p>​	当使用<code>#&#123;&#125;</code>来获取值的时候会发现打印的sql语句如下：</p>
+<pre><code>select from emp where empno=? and ename=?
+</code></pre>
+<p>​	当使用<code>$&#123;&#125;</code>来获取值的时候会发现打印的sql语句如下：</p>
+<pre><code>select from emp where empno=7369 and ename=&#39;SMITH&#39;
+</code></pre>
+<p>​	通过刚刚的案例大家已经发现了存在的问题了：</p>
+<ol>
+<li>若使用<code>#&#123;&#125;</code>方式进行取值：采用的是参数预编译的方式，参数的位置使用？进行替代，不会出现sql注入的问题。</li>
+<li>若使用<code>$&#123;&#125;</code>方式进行取值：采用的是直接跟sql语句进行拼接的方式，此时会出现sql注入的问题。</li>
+</ol>
+<p>​	<strong>所以，我们现在都是采用 <code>#&#123;&#125;</code>，以防止sql注入。</strong></p>
+<h1 id="三、SELECT之-处理集合类型的返回结果"><a href="#三、SELECT之-处理集合类型的返回结果" class="headerlink" title="三、SELECT之 处理集合类型的返回结果"></a><span class="underline">三、SELECT之 处理集合类型的返回结果</span></h1><h2 id="1、List集合的处理"><a href="#1、List集合的处理" class="headerlink" title="1、List集合的处理"></a>1、List集合的处理</h2><p>当返回值的结果是List集合时， resultType 返回值的类型写的是：<strong>集合中每一个元素的具体数据类型</strong>。</p>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705145030745-165702541132028.png" alt="image-20220705145030745"></p>
+<p><strong>mapper接口方法：</strong></p>
+<pre><code>/**
+ *获取所有的emp
+ *@return：集合对象
+ */
+List&lt;Employee&gt; findAllEmp();
+</code></pre>
+<p><strong>mapper映射文件：</strong></p>
+<pre><code>&lt;!--
+    当返回值的结果是集合的时候，返回值的类型依然写的是集合中具体的类型（map除外）
+--&gt;
+&lt;select id=&quot;findAllEmp&quot; resultType=&quot;Employee&quot;&gt; 
+    SELECT * FROM employees
+&lt;/select&gt;
+</code></pre>
+<p><strong>测试方法：</strong></p>
+<pre><code>@Test
+public void testFindAllEmp()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    List&lt;Employee&gt; allEmp = mapper.findAllEmp();
+    for (Employee emp: allEmp) &#123;
+        System.out.println( emp );
+    &#125;
+    sqlSession.close();
+&#125;
+</code></pre>
+<h2 id="2、Map集合的处理"><a href="#2、Map集合的处理" class="headerlink" title="2、Map集合的处理"></a>2、Map集合的处理</h2><p>   由于map集合比较特殊，它含有key和value，所以我们分两种情况说明：</p>
+<ol>
+<li>使用map存放一条数据时：</li>
+</ol>
+<p>​	在查询的时候，若mysql只返回一条数据，此时返回值的类型也可以设置为map，当mybatis查询完成之后会把列名作为key，列的值作为value，转换到map中。</p>
+<p><strong>mapper接口方法：</strong></p>
+<pre><code>/**
+ *返回的是map对象
+ *@param id
+ *@return
+ */
+Map&lt;String, Object&gt; findEmpByIdReturnMap(int id);
+</code></pre>
+<p><strong>mapper映射文件：</strong></p>
+<pre><code>&lt;!--
+    使用map存放一条数据
+    在查询的时候，若mysql只返回一条数据，此时返回值的类型也可以设置为map，当mybatis查询完成之后会把列名作为key，列的值	  作为value，转换到map中
+--&gt;
+&lt;select id=&quot;findEmpByIdReturnMap&quot; resultType=&quot;map&quot;&gt; 
+    SELECT * FROM employees WHERE employee_id = #&#123;id&#125;
+&lt;/select&gt;
+</code></pre>
+<p><strong>测试方法：</strong></p>
+<pre><code>@Test
+public void testFindEmpByIdReturnMap()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    Map&lt;String, Object&gt; map = mapper.findEmpByIdReturnMap(101); 
+    for ( Map.Entry&lt;String, Object&gt; entry : map.entrySet() ) &#123;
+        System.out.println( entry.getKey() +&quot;---&gt;&quot;+ entry.getValue() );
+    &#125;
+    sqlSession.close();
+&#125;
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705145332855-165702544762330.png" alt="image-20220705145332855"></p>
+<ol start="2">
+<li>使用map存放多条数据时：</li>
+</ol>
+<p>​		当使用map存放多条数据时，返回值的类型一定要写map中value的类型，同时在mapper接口的方法上要添加**@MapKey**的注				解，来设置key是什么。</p>
+<p><strong>mapper接口方法：</strong></p>
+<pre><code>/**
+ *使用map存放多条数据
+ *@return
+ *
+ *注解：@MapKey(&quot;employee_id&quot;)  ===》设置map集合的key为数据表中的employee_id字段
+ */ @MapKey(&quot;employee_id&quot;)
+Map&lt;Integer,Employee&gt; findAllEmpReturnMap();
+</code></pre>
+<p><strong>mapper映射文件：</strong></p>
+<pre><code>&lt;!--
+    使用map存放多条数据注意：
+    当使用map存放多条数据时，返回值的类型一定要写map中value的类型
+    同时在mapper接口的方法上要添加@MapKey的注解，来设置key是什么结果
+--&gt;
+&lt;select id=&quot;findAllEmpReturnMap&quot; resultType=&quot;Employee&quot;&gt; 
+    SELECT * FROM employees
+&lt;/select&gt;
+</code></pre>
+<p><strong>测试方法：</strong></p>
+<pre><code>@Test
+public void testFindAllEmpReturnMap()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class); 
+    Map&lt;Integer, Employee&gt; emps = mapper.findAllEmpReturnMap(); 
+    for (Map.Entry&lt;Integer, Employee&gt; entry: emps.entrySet() ) &#123;
+        System.out.println( entry.getKey() +&quot;---&gt;&quot;+ entry.getValue() );
+    &#125;
+    sqlSession.close();
+&#125;
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705145519320-165702513940713.png" alt="image-20220705145519320"></p>
+<h1 id="四、级联查询"><a href="#四、级联查询" class="headerlink" title="四、级联查询"></a><span class="underline">四、级联查询</span></h1><h2 id="1、自定义结果集映射"><a href="#1、自定义结果集映射" class="headerlink" title="1、自定义结果集映射"></a>1、自定义结果集映射</h2><p><strong>引入：</strong>我们前面在创建一个实体类的时候，我们都是将类中的属性 和 数据表的字段写的一模一样，方便 MyBatis可以直接 属性名\字段名 进行结果集映射。但是在现实场景中，总会有实体类的属性名会和字段名不一样的情况，此时直接进行结果集映射是会出现异常的。所以针对这种情况，我们需要使用<code>&lt;resultMap&gt;</code>来自定义结果集映射。</p>
+<p><strong>编写实体类Department</strong></p>
+<pre><code class="java">package com.sys.bean;
+
+
+/**
+ *@program: MyBatis_02_Mapper映射文件详解
+ *@description: 部门实体类
+ *@author: DW
+ * @create: 2021-09-26 22:07
+ */
+public class Department &#123;
+
+    private Integer dept_id; 
+    private String dept_name; 
+    private Integer manager_id; 
+    private Integer location_id;
+
+    public Department() &#123;
+    &#125;
+
+
+    public Department(Integer dept_id,String dept_name,Integer manager_id,Integer location_id) &#123;
+    this.dept_id = dept_id; 
+    this.dept_name = dept_name; 
+    this.manager_id = manager_id; 
+    this.location_id = location_id;
+    &#125;
+
+
+    public Integer getDept_id() &#123; 
+        return dept_id;
+    &#125;
+
+
+    public void setDept_id(Integer dept_id) &#123; 
+        this.dept_id = dept_id;
+    &#125;
+
+
+    public String getDept_name() &#123; 
+        return dept_name;
+    &#125;
+
+
+    public void setDept_name(String dept_name) &#123; 
+        this.dept_name = dept_name;
+    &#125;
+
+
+    public Integer getManager_id() &#123;
+        return manager_id;
+    &#125;
+
+
+    public void setManager_id(Integer manager_id) &#123; 
+        this.manager_id = manager_id;
+    &#125;
+
+
+    public Integer getLocation_id() &#123; 
+        return location_id;
+    &#125;
+
+
+    public void setLocation_id(Integer location_id) &#123;
+        this.location_id = location_id;
+    &#125;
+
+
+
+    @Override
+    public String toString() &#123; 
+        return &quot;Department&#123;&quot; +
+               &quot;dept_id=&quot; + dept_id +
+               &quot;, dept_name=&#39;&quot; + dept_name + &#39;\&#39;&#39; + 
+               &quot;, manager_id=&quot; + manager_id +
+               &quot;, location_id=&quot; + location_id + 
+               &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>编写mapper接口：创建一个名为DeptMapper的接口</strong></p>
+<pre><code>package com.sys.mapper;
+
+import com.sys.bean.Department;
+
+import java.util.List;
+
+/**
+ *@program: MyBatis_02_Mapper映射文件详解
+ *@description: 部门表的mapper接口
+ *@author: DW
+ * @create: 2021-09-26 22:09
+ */
+public interface DeptMapper &#123;
+
+    /**
+     *根据部门id查询指定的部门信息
+     *@param id
+     *@return
+     */
+    Department findDeptById( int id );
+&#125;
+</code></pre>
+<p><strong>编写Mapper映射文件：</strong></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+ 		PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+  		&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.sys.mapper.DeptMapper&quot;&gt;
+    &lt;!--
+        使用&lt;resultMap&gt;来自定义结果集映射，用于告诉MaBatis数据表中的字段要和哪个属性进行映射属性：
+        id：resultMap的名字，方便在其他标签中引用
+        type：和resultType，告诉MyBatis需要将结果集中的数据按照 自定义的结果集映射规则 封装成什么类型的对象
+    --&gt;
+    &lt;resultMap id=&quot;deptMapper&quot; type=&quot;department&quot;&gt;
+        &lt;!--
+            &lt;id&gt;标签：设置数据表中的主键 和 实体类的属性 的映射属性：
+            column：主键名 property：属性名
+        --&gt;
+        &lt;id column=&quot;department_id&quot; property=&quot;dept_id&quot;&gt;&lt;/id&gt;
+        &lt;!--
+            &lt;result&gt;标签：设置数据表中的字段 和 实体类的属性 的映射属性：
+            column：字段名 property：属性名
+        --&gt;
+        &lt;result column=&quot;department_name&quot; property=&quot;dept_name&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;manager_id&quot; property=&quot;manager_id&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;location_id&quot; property=&quot;location_id&quot;&gt;&lt;/result&gt;
+    &lt;/resultMap&gt;
+
+    &lt;!--
+        根据部门id查询指定的部门信息
+        Department findDeptById( int id );
+        注意：这里不再是使用resultType属性而是使用resultMap属性来引用上面的自定义结果集映射
+    --&gt;
+    &lt;select id=&quot;findDeptById&quot; resultMap=&quot;deptMapper&quot;&gt;
+        SELECT * FROM departments WHERE department_id = #&#123;id&#125;
+    &lt;/select&gt;
+
+&lt;/mapper&gt;
+</code></pre>
+<p><strong>编写测试方法进行测试：</strong></p>
+<pre><code>import com.sys.bean.Department; 
+import com.sys.bean.Employee; 
+import com.sys.mapper.DeptMapper; 
+import com.sys.mapper.EmpMapper;
+import org.apache.ibatis.io.Resources; 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory; 
+import org.apache.ibatis.session.SqlSessionFactoryBuilder; 
+import org.junit.After;
+import org.junit.Before; 
+import org.junit.Test;
+
+import java.io.IOException; 
+import java.io.InputStream; 
+import java.util.HashMap; 
+import java.util.List; 
+import java.util.Map;
+
+/**
+ *@program: MyBatis_02_Mapper映射文件详解
+ *@description: 测试EmpMapper
+ *@author: DW
+ * @create: 2021-09-13 16:04
+ */
+public class TestDeptMapper &#123;
+
+
+    private SqlSession sqlSession;
+
+    @Before
+    public void getSqlSession()&#123;
+        // 根据全局配置文件创建出SqlSessionFactory
+        //  SqlSessionFactory:负责创建SqlSession对象的工厂
+        // SqlSession:表示跟数据库建议的一次会话 
+        String resource = &quot;mybatis-config.xml&quot;; 
+        InputStream inputStream = null;
+        try &#123;
+            inputStream = Resources.getResourceAsStream(resource);
+        &#125; catch (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+        // 获取数据库的会话
+        sqlSession = sqlSessionFactory.openSession();
+&#125;
+
+
+    @Test
+    public void testFindDeptById()&#123;
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class); 
+        Department dept = mapper.findDeptById(10); 
+        System.out.println( dept );
+    &#125;
+
+
+    @After
+    public void release()&#123; 
+        sqlSession.close();
+    &#125;
+
+
+&#125;
+</code></pre>
+<h2 id="2、级联查询"><a href="#2、级联查询" class="headerlink" title="2、级联查询"></a>2、级联查询</h2><p>在现实场景中对数据库的查询不可能仅限于单表查询，有时候会涉及到多表查询。多表查询：也称级联查询，表示本次查询操作会涉及多个数据表的数据。</p>
+<h3 id="2-1、一对一"><a href="#2-1、一对一" class="headerlink" title="2.1、一对一"></a>2.1、一对一</h3><p>当涉及到多表查询的时候，就需要考虑到表中数据之间的关系。</p>
+<p><strong>需求：</strong>根据员工id查询指定员工的信息，并查询该员工所在的部门信息。</p>
+<p><strong>分析：</strong>那么这里设计到两张表，由于一个员工只能属于某一个部门，所以这里员工和部门之间的关系就是”一对一”的关系。</p>
+<p><strong>SQL语句：</strong>以125进行举例分析</p>
+<pre><code class="xml">SELECT *
+FROM employees e
+LEFT JOIN departments d
+ON e.department_id = d.department_id 
+WHERE e.employee_id = 125
+</code></pre>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705173921680-165702548072232.png" alt="image-20220705173921680"></p>
+<p>从以上的运行结果发现整个结果集中的数据分为两部分：employees和departments 。如何来处理这个结果集呢？分表使用两个对象？还是使用一个employee对象呢？</p>
+<p><strong>实体类设计：</strong></p>
+<p>既然两者是一对一的关系，我们可以在Employee中添加一个Department属性：</p>
+<pre><code>/**
+ * 员工所在的部门
+ */
+private Department dept;
+</code></pre>
+<p>并为该属性添加set和get方法：</p>
+<pre><code>public Department getDept() &#123; 
+    return dept;
+&#125;
+
+public void setDept(Department dept) &#123; 
+    this.dept = dept;
+&#125;
+</code></pre>
+<p>再次重写toString()方法：</p>
+<pre><code>@Override
+public String toString() &#123; 
+    return &quot;Employee&#123;&quot; +
+        &quot;employee_id=&quot; + employee_id +
+        &quot;, first_name=&#39;&quot; + first_name + &#39;\&#39;&#39; + 
+        &quot;, last_name=&#39;&quot; + last_name + &#39;\&#39;&#39; + 
+        &quot;, email=&#39;&quot; + email + &#39;\&#39;&#39; +
+        &quot;, phone_number=&#39;&quot; + phone_number + &#39;\&#39;&#39; + 
+        &quot;, job_id=&#39;&quot; + job_id + &#39;\&#39;&#39; +
+        &quot;, salary=&quot; + salary +
+        &quot;, commission_pct=&quot; + commission_pct + 
+        &quot;, manager_id=&quot; + manager_id +
+        &quot;, department_id=&quot; + department_id + 
+        &quot;, hiredate=&quot; + hiredate +
+        &quot;, dept=&quot; + dept + &#39;&#125;&#39;;
+&#125;
+</code></pre>
+<p><strong>修改EmpMapper接口：</strong></p>
+<pre><code>/**
+ *根据员工id查询指定员工的信息，并查询该员工所在的部门信息。
+ *@param id
+ *@return
+ */
+Employee findEmpAndDept( int id );
+</code></pre>
+<p><strong>修改EmpMapper映射文件：</strong></p>
+<pre><code>&lt;!--
+    由于这里的结果集包含两部分的数据，所以需要使用resultMap设置字段名和属性名之间的映射，将结果集中的数据封装进
+    现在的employee对象当中。
+--&gt;
+&lt;resultMap id=&quot;empJoinDept&quot; type=&quot;employee&quot;&gt;
+    &lt;id column=&quot;employee_id&quot; property=&quot;employee_id&quot;&gt;&lt;/id&gt;
+    &lt;result column=&quot;first_name&quot; property=&quot;first_name&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;last_name&quot; property=&quot;last_name&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;email&quot; property=&quot;email&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;phone_number&quot; property=&quot;phone_number&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;job_id&quot; property=&quot;job_id&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;salary&quot; property=&quot;salary&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;commission_pct&quot; property=&quot;commission_pct&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;manager_id&quot; property=&quot;manager_id&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;department_id&quot; property=&quot;department_id&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;hiredate&quot; property=&quot;hiredate&quot;&gt;&lt;/result&gt;
+    &lt;!--
+        association：用于一对一的关系，设置实体类属性的自定义结果集映射 
+        property：实体类属性的名字
+        javaType：指定实体类属性所属的实体类
+    --&gt;
+    &lt;association property=&quot;dept&quot; javaType=&quot;department&quot;&gt;
+        &lt;id column=&quot;department_id&quot; property=&quot;dept_id&quot;&gt;&lt;/id&gt;
+        &lt;result column=&quot;department_name&quot; property=&quot;dept_name&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;manager_id&quot; property=&quot;manager_id&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;location_id&quot; property=&quot;location_id&quot;&gt;&lt;/result&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+
+
+&lt;!--
+    根据员工id查询指定员工的信息，并查询该员工所在的部门信息。
+    Employee findEmpAndDept( int id );
+--&gt;
+&lt;select id=&quot;findEmpAndDept&quot; resultMap=&quot;empJoinDept&quot; &gt; 
+    SELECT *
+    FROM employees e
+    LEFT JOIN departments d
+    ON e.department_id = d.department_id 
+    WHERE e.employee_id = #&#123;id&#125;
+&lt;/select&gt;
+</code></pre>
+<p><strong>编写测试类方法：</strong></p>
+<pre><code>@Test
+public void testFindEmpAndDept()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class); 
+    Employee employee = mapper.findEmpAndDept(114); 
+    System.out.println( employee );
+&#125;
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705174628111-165702549304034.png" alt="image-20220705174628111"></p>
+<h3 id="2-2-、一对多"><a href="#2-2-、一对多" class="headerlink" title="2.2 、一对多"></a>2.2 、一对多</h3><p><strong>需求：</strong>根据部门id查询指定部门的信息，并查询该部门下所有的员工信息。</p>
+<p><strong>分析：</strong>那么这里设计到两张表，由于一个部门下会有多个员工，所以这里部门和员工之间的关系就是”一对多”的关系。</p>
+<p><strong>SQL语句：</strong>以30进行举例分析</p>
+<pre><code>SELECT *
+FROM departments d
+LEFT JOIN employees e
+ON d.department_id = e.department_id 
+WHERE d.department_id=30
+</code></pre>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705174856719-165702550024736.png" alt="image-20220705174856719"></p>
+<p>参考上一小节的内容，我们需要在Department实体类中添加一个和Employee相关的属性，根据上图一个Department对象会对应多		个Employee对象，所有这里需要使用集合来存放这些Employee对象。</p>
+<p><strong>实体类设计：</strong>在Department实体类中添加集合</p>
+<pre><code> /**
+  * 集合属性，用于一对多时，存放多个Employee对象   
+  */
+ private List&lt;Employee&gt; employeeList;
+</code></pre>
+<p><strong>修改DeptMapper接口：</strong></p>
+<pre><code>/**
+ *根据部门id查询指定部门的信息，并查询该部门下所有的员工信息。
+ *@return
+ */
+List&lt;Department&gt; findAllDeptJoinEmpById(int id);
+</code></pre>
+<p><strong>编写DeptMapper映射文件：</strong></p>
+<pre><code>&lt;resultMap id=&quot;deptJoinEmp&quot; type=&quot;department&quot;&gt;
+    &lt;id column=&quot;department_id&quot; property=&quot;dept_id&quot;&gt;&lt;/id&gt;
+    &lt;result column=&quot;department_name&quot; property=&quot;dept_name&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;manager_id&quot; property=&quot;manager_id&quot;&gt;&lt;/result&gt;
+    &lt;result column=&quot;location_id&quot; property=&quot;location_id&quot;&gt;&lt;/result&gt;
+    &lt;!--
+        &lt;collection&gt;标签：用于设置集合属性的自定义结果集映射 
+        property：集合属性名
+        ofType：指定集合属性的泛型
+    --&gt;
+    &lt;collection property=&quot;employeeList&quot; ofType=&quot;employee&quot;&gt;
+        &lt;id column=&quot;employee_id&quot; property=&quot;employee_id&quot;&gt;&lt;/id&gt;
+        &lt;result column=&quot;first_name&quot; property=&quot;first_name&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;last_name&quot; property=&quot;last_name&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;email&quot; property=&quot;email&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;phone_number&quot; property=&quot;phone_number&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;job_id&quot; property=&quot;job_id&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;salary&quot; property=&quot;salary&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;commission_pct&quot; property=&quot;commission_pct&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;manager_id&quot; property=&quot;manager_id&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;department_id&quot; property=&quot;department_id&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;hiredate&quot; property=&quot;hiredate&quot;&gt;&lt;/result&gt;
+    &lt;/collection&gt;
+&lt;/resultMap&gt;
+</code></pre>
+<p><strong>编写测试方法：</strong></p>
+<pre><code>@Test
+public void testFindEmpAndDept()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class); 
+    Employee employee = mapper.findEmpAndDept(114); 
+    System.out.println( employee );
+&#125;
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<p><img src="/assets/%E7%AC%AC2%E7%AB%A0%20%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/image-20220705175345436-165702550939538.png" alt="image-20220705175345436"></p>
+<h1 id="五、动态sql"><a href="#五、动态sql" class="headerlink" title="五、动态sql"></a><span class="underline">五、动态sql</span></h1><h2 id="引入-1"><a href="#引入-1" class="headerlink" title="引入"></a>引入</h2><pre><code>需求1：根据id查询员工信息。
+
+需求2：根据first_name查询员工信息。
+
+需求3：根据last_name查询员工信息。
+
+需求4：根据email查询员工信息。
+
+等等。
+</code></pre>
+<p>若我们根据以上需求去写代码，其实是没问题的，只不过我们需要写很多的mapper接口方法以mapper映射文件。而且整个SQL语句		中，SELECT语句是没变的，唯独是WHERE子句一直在变化，所以我们能否将上述一系列的SQL语句整合在一起呢？让WHERE子句部		门根据不同的情况而动态变化呢？</p>
+<p>此时，那就使用使用动态SQL了。</p>
+<h2 id="1、多条件查询"><a href="#1、多条件查询" class="headerlink" title="1、多条件查询"></a>1、多条件查询</h2><h3 id="1-1、if标签"><a href="#1-1、if标签" class="headerlink" title="1.1、if标签"></a>1.1、if标签</h3><p>我们来实现下引入部分的需求。</p>
+<p><strong>修改EmpMapper接口：</strong></p>
+<pre><code>/**
+ *动态sql：多条件查询
+ *@param  employee：由于条件的个数不确定，所以将多个条件封装进employee对象当中
+ *@return
+ */
+List&lt;Employee&gt; findEmpsByConditions(Employee employee);
+</code></pre>
+<p><strong>修改EmpMapper映射文件：</strong></p>
+<pre><code>&lt;!--
+    动态sql：多条件查询，根据employees表当中的多个字段进行查询
+    List&lt;Employee&gt; findEmpsByConditions(Employee employee);
+--&gt;
+&lt;select id=&quot;findEmpsByConditions&quot; resultType=&quot;employee&quot;&gt; 
+    SELECT * FROM employees WHERE 1=1
+    &lt;!--
+        if标签
+        test：写形参的判断条件，当判断条件为true时，MyBatis会将AND子句拼接进SELECT语句中
+        注意：形参需要根据接口方法的形参、#&#123;参数&#125;去写
+    --&gt;
+    &lt;if test=&quot;employee_id != 0&quot;&gt;
+        AND employee_id = #&#123;employee_id&#125;
+    &lt;/if&gt;
+    &lt;if test=&quot;first_name != null and first_name != &#39;&#39;&quot;&gt; 
+        AND first_name = #&#123;first_name&#125;
+    &lt;/if&gt;
+    &lt;if test=&quot;last_name != null and last_name != &#39;&#39;&quot;&gt; 
+        AND last_name = #&#123;last_name&#125;
+    &lt;/if&gt;
+&lt;/select&gt;
+</code></pre>
+<p><strong>编写测试方法：</strong></p>
+<pre><code>@Test
+public void testFindEmpsByConditions()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    
+    // 创建employee对象，通过set方法将参数封装进该对象当中
+    Employee employee = new Employee();
+    
+    // employee.setEmployee_id(132);
+    employee.setFirst_name(&quot;TJ&quot;);
+    
+    // employee.setLast_name(&quot;Olson&quot;);
+    List&lt;Employee&gt; emps = mapper.findEmpsByConditions(employee);
+    
+    // 遍历集合
+    for ( Employee emp : emps) &#123;
+        System.out.println(emp);
+    &#125;
+&#125;
+</code></pre>
+<p><code>&lt;if&gt;</code> <strong>标签说明：</strong></p>
+<p>当if标签中的test属性为true的时候，MyBatis就会将该if标签中的sql拼接进select语句，所以使用该标签</p>
+<p><strong>可以拼接任意个条件</strong>。</p>
+<p>if标签相当是Java当中的”与运算”，也类似于if单分支结构，但是不支持if...else...结构的功能。</p>
+<h3 id="1-2、choose标签"><a href="#1-2、choose标签" class="headerlink" title="1.2、choose标签"></a>1.2、choose标签</h3><p>和 if标签 对应的还有一个choose标签。我们先来看看该标签怎么使用。</p>
+<p><strong>修改EmpMapper接口：</strong></p>
+<pre><code>/**
+ * 动态sql2
+ * @param employee：将多个条件封装进employee对象当中
+ * @return
+ */
+List&lt;Employee&gt; findEmpsByConditions2(Employee employee);
+</code></pre>
+<p><strong>修改EmpMapper映射文件：</strong></p>
+<pre><code>&lt;!--
+    动态sql2
+    List&lt;Employee&gt; findEmpsByConditions2(Employee employee);
+--&gt;
+&lt;select id=&quot;findEmpsByConditions2&quot; resultType=&quot;employee&quot;&gt;
+    SELECT * FROM employees WHERE 1=1
+    &lt;choose&gt;
+        &lt;when test=&quot;employee_id != 0&quot;&gt;
+            AND employee_id = #&#123;employee_id&#125;
+        &lt;/when&gt;
+        &lt;when test=&quot;first_name != null and first_name != &#39;&#39;&quot;&gt;
+            AND first_name = #&#123;first_name&#125;
+        &lt;/when&gt;
+        &lt;when test=&quot;last_name != null and last_name != &#39;&#39;&quot;&gt;
+            AND last_name = #&#123;last_name&#125;
+        &lt;/when&gt;
+    &lt;/choose&gt;
+&lt;/select&gt;
+</code></pre>
+<p><strong>编写测试方法：</strong></p>
+<p>​	</p>
+<pre><code>@Test
+public void testFindEmpsByConditions2()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+
+    // 创建employee对象，通过set方法将参数封装进该对象当中 
+    Employee employee = new Employee(); 
+    employee.setEmployee_id(132); 
+    employee.setFirst_name(&quot;TJ&quot;); 
+    employee.setLast_name(&quot;Olson&quot;);
+
+    List&lt;Employee&gt; emps = mapper.findEmpsByConditions2(employee);
+
+    // 遍历集合
+    for ( Employee emp : emps) &#123; 
+        System.out.println(emp);
+    &#125;
+&#125;
+</code></pre>
+<p><code>&lt;choose&gt;</code> <strong>标签说明：</strong></p>
+<p>在choose当中，<strong>when标签语句是从上往下依次执行的</strong>，</p>
+<p>（1）若when标签中的test属性为false时，会继续往下执行；</p>
+<p>（2）当遇到了when标签中的test属性为true时，则整个choose就结束，MyBatis会将该when标签中的</p>
+<p>​		  sql拼接进select语句。</p>
+<p>（3）当所有的when标签都为false的时候，就会执行otherwise标签，若没有otherwise标签，则直接结束整个choose，此时无sql语				 句拼接。</p>
+<p>所以 choose标签能拼接0个或者1个条件。</p>
+<p>choose相当于是Java当中的”或运算”，类似switch结构，choose相当于是switch，when相当于case， otherwise相当于default。</p>
+<p><strong>注意：</strong>当choose结构在某个when标签中结束时， 后面when标签是没有执行的。</p>
+<h2 id="2、in子句的动态参数问题"><a href="#2、in子句的动态参数问题" class="headerlink" title="2、in子句的动态参数问题"></a>2、in子句的动态参数问题</h2><p><strong>需求：</strong>根据job_id去查询员工信息。</p>
+<p><strong>分析：</strong>在现实场景中，job_id是由前端页面发送到后端的，用户在输入job_id时，可能输入了1个、2</p>
+<p>个、3个...N个等等。所以我们的SQL语句当中的参数也是动态变化的。</p>
+<p><strong>修改EmpMapper接口：</strong></p>
+<pre><code>/**
+ * 动态sql：in字句中的参数动态变化
+ * 需求：根据job_id去查询员工信息（job_id可能有1个、2个、3个...N个）
+ * @param job_ids
+ * @return
+ */
+List&lt;Employee&gt; findEmpsByJobIds(List&lt;String&gt; job_ids);
+</code></pre>
+<p><strong>修改EmpMapper映射文件：</strong></p>
+<pre><code>&lt;!--
+    List&lt;Employee&gt; findEmpsByJobIds(List&lt;String&gt; job_ids);
+--&gt;
+&lt;select id=&quot;findEmpsByJobIds&quot; resultType=&quot;employee&quot;&gt;
+    SELECT * FROM employees WHERE job_id IN
+    &lt;!--
+        foreach标签：用于处理接口方法的参数为集合的情况，主要解决in子句中动态参数的问题
+        属性：
+        item：设置集合中元素的别名
+        index：设置集合中元素的索引类型，List集合则为：index
+        collection：表示集合的类型，List集合则为：list
+        open：in子句的开始标记：(
+        separator：表示in子句的分隔符：,
+        close：in子句的结束标记：)
+        
+        注意：sql语句的参数 #&#123;item的属性值&#125;
+    --&gt;
+    &lt;foreach item=&quot;jid&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&quot;
+    separator=&quot;,&quot; close=&quot;)&quot;&gt;
+        #&#123;jid&#125;
+    &lt;/foreach&gt;
+&lt;/select&gt;
+</code></pre>
+<p><strong>编写测试方法：</strong></p>
+<pre><code>@Test
+public void testFindEmpsByJobIds()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    
+    List&lt;String&gt; job_ids = new ArrayList&lt;String&gt;();
+    job_ids.add(&quot;ST_CLERK&quot;);
+    job_ids.add(&quot;SA_MAN&quot;);
+    
+    List&lt;Employee&gt; emps = mapper.findEmpsByJobIds(job_ids);
+    
+    // 遍历集合
+    for ( Employee emp : emps) &#123;
+        System.out.println(emp);
+    &#125;
+&#125;
+</code></pre>
+<p>foreach标签常见使用场景是对集合进行遍历，尤其是在构建 IN 条件语句的时候。</p>
+<p><em>foreach</em> 元素的功能非常强大，它允许你指定一个集合，声明可以在元素体内使用的集合项（item）和索引（index）变量。它也允许你指定开头与结尾的字符串以及集合项迭代之间的分隔符。这个元素也不会错误地添加多余的分隔符！</p>
+<p><strong>提示</strong>：你可以将任何可迭代对象（如 List、Set 等）、Map 对象或者数组对象作为集合参数传递给 <em>foreach</em>。当使用可迭代对象或者数组时，index 是当前迭代的序号，item 的值是本次迭代获取到的元素。当使用 Map 对象（或者 Map.Entry 对象的集合）时，index 是键，item 是值。</p>
+<h2 id="3、SQL片段"><a href="#3、SQL片段" class="headerlink" title="3、SQL片段"></a>3、SQL片段</h2><p>这个元素可以用来定义可重用的 SQL 代码片段，以便在其它语句中使用。 参数可以静态地（在加载的时候）确定下来，并且可以在	    不同的 include 元素中定义不同的参数值。</p>
+<p>比如：我们的EmpMapper映射文件中出现了许多的<code>&quot;SELECT * FROM employees&quot;</code> 那我们是否可以将它们提取出来呢？</p>
+<pre><code>&lt;!--
+    SQL片段
+--&gt;
+&lt;sql id=&quot;select*Emp&quot;&gt;
+    SELECT * FROM employees
+&lt;/sql&gt;
+
+&lt;!--
+    动态sql：多条件查询，根据employees表当中的多个字段进行查询
+    List&lt;Employee&gt; findEmpsByConditions(Employee employee);
+--&gt;
+&lt;select id=&quot;findEmpsByConditions&quot; resultType=&quot;employee&quot;&gt;
+    &lt;include refid=&quot;select*Emp&quot;&gt;&lt;/include&gt; WHERE 1=1
+    &lt;!--
+        if标签
+        test：写形参的判断条件，当判断条件为true时，MyBatis会将AND子句拼接进SELECT语句中
+        注意：形参需要根据接口方法的形参、#&#123;参数&#125;去写
+    --&gt;
+    &lt;if test=&quot;employee_id != 0&quot;&gt;
+        AND employee_id = #&#123;employee_id&#125;
+    &lt;/if&gt;
+    &lt;if test=&quot;first_name != null and first_name != &#39;&#39;&quot;&gt;
+        AND first_name = #&#123;first_name&#125;
+    &lt;/if&gt;
+    &lt;if test=&quot;last_name != null and last_name != &#39;&#39;&quot;&gt;
+        AND last_name = #&#123;last_name&#125;
+    &lt;/if&gt;
+&lt;/select&gt;
+</code></pre>
+<h1 id="六、其他操作"><a href="#六、其他操作" class="headerlink" title="六、其他操作"></a><span class="underline">六、其他操作</span></h1><h2 id="1、insert操作"><a href="#1、insert操作" class="headerlink" title="1、insert操作"></a>1、insert操作</h2><p><strong>需求：</strong>在employees表中添加一行数据<strong>在EmpMapper接口中编写方法：</strong></p>
+<pre><code>/**
+ * 添加数据
+ * @param employee
+ * @return
+ */
+Integer addEmp(Employee employee);
+</code></pre>
+<p><strong>修改EmpMapper映射文件：</strong></p>
+<pre><code>&lt;insert id=&quot;addEmp&quot;&gt;
+    INSERT INTO employees (first_name,last_name,email)
+    VALUES (#&#123;first_name&#125;,#&#123;last_name&#125;,#&#123;email&#125;)
+&lt;/insert&gt;
+</code></pre>
+<p><strong>编写测试方法：</strong></p>
+<pre><code>@Test
+public void testAddEmp()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    
+    Employee employee = new Employee();
+    employee.setFirst_name(&quot;Wei&quot;);
+    employee.setLast_name(&quot;Wu&quot;);
+    employee.setEmail(&quot;1323789218@qq.com&quot;);
+    
+    Integer row = mapper.addEmp(employee);
+    // 提交操作，否则数据不会保存到数据库当中
+    sqlSession.commit();
+    System.out.println(&quot;影响的行数为：&quot;+row);
+&#125;
+</code></pre>
+<h2 id="2、update操作"><a href="#2、update操作" class="headerlink" title="2、update操作"></a>2、update操作</h2><p><strong>需求：</strong>修改刚刚添加的数据。</p>
+<p><strong>在EmpMapper接口中编写方法：</strong></p>
+<pre><code>/**
+ * 修改指定员工的数据
+ * @param last_name
+ * @return
+ */
+Integer updateEmp(@Param(&quot;l_name&quot;) String last_name, @Param(&quot;id&quot;) int id);
+</code></pre>
+<p><strong>修改EmpMapper映射文件：</strong></p>
+<pre><code>&lt;update id=&quot;updateEmp&quot;&gt;
+    UPDATE employees SET
+    last_name = #&#123;l_name&#125;
+    WHERE employee_id = #&#123;id&#125;
+&lt;/update&gt;
+</code></pre>
+<p><strong>编写测试方法：</strong></p>
+<pre><code>@Test
+public void testUpdateEmp()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    Integer row = mapper.updateEmp(&quot;HaSaGei&quot;, 218);
+    
+    // 提交操作，否则数据不会保存到数据库当中
+    sqlSession.commit();
+    System.out.println(&quot;影响的行数为：&quot;+row);
+&#125;
+</code></pre>
+<h2 id="3、delete操作"><a href="#3、delete操作" class="headerlink" title="3、delete操作"></a>3、delete操作</h2><p><strong>需求：</strong>删除刚刚添加的数据。</p>
+<p><strong>在EmpMapper接口中编写方法：</strong></p>
+<pre><code>/**
+ * 删除指定的员工信息
+ * @param id
+ * @return
+ */
+Integer deleteEmp(int id);
+</code></pre>
+<p><strong>修改EmpMapper映射文件：</strong></p>
+<pre><code>&lt;delete id=&quot;deleteEmp&quot;&gt;
+    DELETE FROM employees WHERE employee_id = #&#123;id&#125;
+&lt;/delete&gt;
+</code></pre>
+<p><strong>编写测试方法：</strong></p>
+<pre><code>@Test
+public void testDeleteEmp()&#123;
+    EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+    Integer row = mapper.deleteEmp(218);
+    
+    // 提交操作，否则数据不会保存到数据库当中
+    sqlSession.commit();
+    System.out.println(&quot;影响的行数为：&quot;+row);
+&#125;
+</code></pre>
+
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 ISDAY
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @ISDAY
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "", clientSecret = "";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "",
+        owner: "",
+        admin: [""],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: false,
+        
+    })
+    gitalk.render("gitalk-container")
+</script>
+
+
+    </body>
+</html>

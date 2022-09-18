@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Springboot-05-Mybatis | ISDAY</title>
+        <meta name="author" content="ISDAY">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="avatar/avatar.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ISDAY</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;ISDAY</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Springboot-05-Mybatis </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+        
+        <span class="category">
+            <a href="/categories/SSM/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                SSM
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/SSM/" style="color: #00bcd4">
+                    SSM
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Spring/" style="color: #ffa2c4">
+                    Spring
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <p>springboot-05-mybatis </p>
+<blockquote>
+<p>bean</p>
+</blockquote>
+<pre><code>public class Booksinformation &#123;
+
+    private int id;
+    private String name;
+    private String author;
+    private String press;
+    private String type;
+
+&#125;
+</code></pre>
+<blockquote>
+<p>mapper</p>
+</blockquote>
+<pre><code>@Mapper
+@Repository
+public interface BooksinformationMapper &#123;
+
+    List&lt;Booksinformation&gt; queryAllBooksinformation();
+
+    Booksinformation queryBooksinformationById(@Param(&quot;id&quot;) int id);
+
+    int addBooksinformation(@Param(&quot;booksinformation&quot;) Booksinformation booksinformation);
+
+    int updateBooksinformation(@Param(&quot;booksinformation&quot;) Booksinformation booksinformation);
+
+    int deleteBooksinformation(@Param(&quot;id&quot;) int id);
+
+&#125;
+</code></pre>
+<blockquote>
+<p>service</p>
+</blockquote>
+<pre><code>public interface BooksinformationService &#123;
+
+    List&lt;Booksinformation&gt; queryAllBooksinformation();
+
+    Booksinformation queryBooksinformationById(int id);
+
+    int addBooksinformation(Booksinformation booksinformation);
+
+    int updateBooksinformation(Booksinformation booksinformation);
+
+    int deleteBooksinformation(int id);
+
+&#125;
+</code></pre>
+<blockquote>
+<p>serviceImpl</p>
+</blockquote>
+<pre><code>@Service
+public class BooksinformationServiceImpl implements BooksinformationService &#123;
+
+    @Autowired
+    private BooksinformationMapper booksinformationMapper;
+
+
+    public void setBooksinformationMapper(BooksinformationMapper booksinformationMapper) &#123;
+        this.booksinformationMapper = booksinformationMapper;
+    &#125;
+
+    @Override
+    public List&lt;Booksinformation&gt; queryAllBooksinformation() &#123;
+        return booksinformationMapper.queryAllBooksinformation();
+    &#125;
+
+    @Override
+    public Booksinformation queryBooksinformationById(int id) &#123;
+        return booksinformationMapper.queryBooksinformationById(id);
+    &#125;
+
+    @Override
+    public int addBooksinformation(Booksinformation booksinformation) &#123;
+        return booksinformationMapper.addBooksinformation(booksinformation);
+    &#125;
+
+    @Override
+    public int updateBooksinformation(Booksinformation booksinformation) &#123;
+        return booksinformationMapper.updateBooksinformation(booksinformation);
+    &#125;
+
+    @Override
+    public int deleteBooksinformation(int id) &#123;
+        return booksinformationMapper.deleteBooksinformation(id);
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>controller</p>
+</blockquote>
+<pre><code>@RestController
+public class BooksinformationController &#123;
+
+    @Autowired
+    private BooksinformationService booksinformationService;
+
+    @RequestMapping(&quot;/1&quot;)
+    public List&lt;Booksinformation&gt; queryAllBooksinformation()&#123;
+        List&lt;Booksinformation&gt; list = booksinformationService.queryAllBooksinformation();
+        for (Booksinformation book: list) &#123;
+            System.out.println(book);
+        &#125;
+        return list;
+    &#125;
+
+    @RequestMapping(&quot;&quot;)
+    public String queryBooksinformationById()&#123;
+        return null;
+    &#125;
+
+    @RequestMapping(&quot;&quot;)
+    public String addBooksinformation()&#123;
+        return null;
+    &#125;
+
+    @RequestMapping(&quot;&quot;)
+    public String updateBooksinformation()&#123;
+        return null;
+    &#125;
+
+    @RequestMapping(&quot;&quot;)
+    public String deleteBooksinformation()&#123;
+        return null;
+    &#125;
+
+
+&#125;
+</code></pre>
+<blockquote>
+<p>mapper.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--
+    mapper映射文件：用于定制sql语句与指定接口中指定方法的映射
+    属性namespace：编写接口的全类名，就是告诉MyBatis这个mapper映射文件和哪个接口映射
+--&gt;
+&lt;mapper namespace=&quot;com.cccrt6.mapper.BooksinformationMapper&quot;&gt;
+
+
+    &lt;select id=&quot;queryAllBooksinformation&quot; resultType=&quot;Booksinformation&quot;&gt;
+        select * from booksinformation
+    &lt;/select&gt;
+
+    &lt;select id=&quot;queryBooksinformationById&quot; resultType=&quot;Booksinformation&quot;&gt;
+        select * from booksinformation where id = #&#123;id&#125;
+    &lt;/select&gt;
+
+    &lt;insert id=&quot;addBooksinformation&quot; parameterType=&quot;Booksinformation&quot;&gt;
+        insert into booksinformation values (#&#123;id&#125;,#&#123;name&#125;,#&#123;author&#125;,#&#123;press&#125;,#&#123;type&#125;)
+    &lt;/insert&gt;
+
+    &lt;update id=&quot;updateBooksinformation&quot; parameterType=&quot;Booksinformation&quot;&gt;
+        update booksinformation set name = #&#123;name&#125;,author = #&#123;author&#125;,press = #&#123;press&#125;,type = #&#123;type&#125; where id= #&#123;id&#125;
+    &lt;/update&gt;
+
+    &lt;delete id=&quot;deleteBooksinformation&quot; parameterType=&quot;int&quot;&gt;
+        delete from booksinformation where id = #&#123;id&#125;
+    &lt;/delete&gt;
+
+&lt;/mapper&gt;
+
+</code></pre>
+<pre><code># 数据库驱动：
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+# 数据源名称
+spring.datasource.name=defaultDataSource
+# 数据库连接地址
+spring.datasource.url=jdbc:mysql://localhost:3306/bookshop?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useUnicode=true
+# 数据库用户名&amp;密码：
+spring.datasource.username=root
+spring.datasource.password=mysql0917
+
+#整合mybatis
+mybatis.type-aliases-package=com.cccrt6.bean
+mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
+</code></pre>
+
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 ISDAY
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @ISDAY
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "", clientSecret = "";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "",
+        owner: "",
+        admin: [""],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: false,
+        
+    })
+    gitalk.render("gitalk-container")
+</script>
+
+
+    </body>
+</html>

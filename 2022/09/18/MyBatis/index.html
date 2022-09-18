@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>MyBatis | ISDAY</title>
+        <meta name="author" content="ISDAY">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="avatar/avatar.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ISDAY</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;ISDAY</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>MyBatis </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+        
+        <span class="category">
+            <a href="/categories/SSM/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                SSM
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/SSM/" style="color: #00a596">
+                    SSM
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/MyBatis/" style="color: #ffa2c4">
+                    MyBatis
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="1、搭建数据库"><a href="#1、搭建数据库" class="headerlink" title="1、搭建数据库"></a>1、搭建数据库</h2><pre><code class="sql">CREATE DATABASE `mybatis`;
+
+USE `mybatis`;
+
+CREATE TABLE `user`(
+    `id` INT(20) NOT NULL PRIMARY KEY,
+    `name` VARCHAR(30) DEFAULT NULL,
+    `pwd` VARCHAR(30) DEFAULT NULL
+)ENGINE=INNODB DEFAULT charset=utf8;
+
+INSERT INTO `user` (`id`,`name`,`pwd`) VALUES
+(1,&#39;root1&#39;,&#39;12345601&#39;),
+(2,&#39;root2&#39;,&#39;12345602&#39;),
+(3,&#39;root3&#39;,&#39;12345603&#39;),
+(4,&#39;root4&#39;,&#39;12345604&#39;);
+</code></pre>
+<h2 id="2、新建项目"><a href="#2、新建项目" class="headerlink" title="2、新建项目"></a>2、新建项目</h2><ul>
+<li><strong>文件目录</strong></li>
+<li><img src="/assets/MyBatis/image-20220630093620534-16570249709591.png" alt="image-20220630093620534"></li>
+</ul>
+<ol>
+<li><p><strong>导入依赖</strong>(在pom.xml中添加依赖)</p>
+<ul>
+<li><pre><code class="xml">&lt;!--    导入依赖--&gt;
+    &lt;dependencies&gt;
+&lt;!--    mysql依赖--&gt;
+        &lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;8.0.28&lt;/version&gt;
+        &lt;/dependency&gt;
+
+&lt;!--        mybatis核心包--&gt;
+        &lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+            &lt;version&gt;3.5.6&lt;/version&gt;
+        &lt;/dependency&gt;
+
+&lt;!--   测试     junit--&gt;
+        &lt;!-- https://mvnrepository.com/artifact/junit/junit --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.13.1&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>添加工具类【MybatisUtils.java】</strong></p>
+<ul>
+<li><pre><code class="java"> private static SqlSessionFactory build;
+    
+//    使用mybatis第一步
+//    获取sqlSessionFactory对象
+    static &#123;
+        try &#123;
+            String resource = &quot;mybatis-config.xml&quot;;
+            InputStream resourceAsStream = Resources.getResourceAsStream(resource);
+            build = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        &#125; catch (IOException e) &#123;
+            throw new RuntimeException(e);
+        &#125;
+    &#125;
+//        既然有了 SqlSessionFactory，顾名思义，我们可以从中获得 SqlSession 的实例。
+//        SqlSession 提供了在数据库执行 SQL 命令所需的所有方法。
+    public static SqlSession getSqlSession()&#123;
+        return build.openSession();
+
+    &#125;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>在静态文件夹【resuorces】文件夹中新建【mybatis-config.xml】配置文件</strong></p>
+<p><strong>每创建一个xxMapper.xml都要在<mappers>中添加一个mapper</strong></p>
+<ul>
+<li><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+
+&lt;configuration&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.cj.jdbc.Driver&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis?   	serverTimezone=GMT&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf8&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;mysql0917&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+
+    &lt;mappers&gt;
+        &lt;mapper class=&quot;com.ccrt6.mapper.UserMapper&quot;&gt;&lt;/mapper&gt;
+    &lt;/mappers&gt;
+
+
+&lt;/configuration&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>构建实体类，在main-&gt;java-&gt;下建立com.ccrt6.bean-&gt;在bean文件夹中新建-&gt;Userinfo.java</strong></p>
+<ul>
+<li><pre><code class="java">package com.ccrt6.bean;
+
+/**
+ * @author zh
+ * @Title:Userinfo
+ * @Package:com.ccrt6.bean
+ * @Description:实体类
+ * @date 2022/6/2818:45
+ */
+public class Userinfo &#123;
+    // 属性名和数据表的字段名保持一致
+    private int id;
+    private String name;
+    private String ped;
+    // 快捷键生成构造器、get、set方法：alt+insert
+    public Userinfo() &#123;
+    &#125;
+
+    public Userinfo(int id, String name, String ped) &#123;
+        this.id = id;
+        this.name = name;
+        this.ped = ped;
+    &#125;
+
+    public int getId() &#123;
+        return id;
+    &#125;
+
+    public void setId(int id) &#123;
+        this.id = id;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public String getPed() &#123;
+        return ped;
+    &#125;
+
+    public void setPed(String ped) &#123;
+        this.ped = ped;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Userinfo&#123;&quot; +
+                &quot;id=&quot; + id +
+                &quot;, name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, ped=&#39;&quot; + ped + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>创建mapper接口，在com.ccrt6-&gt;新建mapper文件夹-&gt;在mapper文件夹中新建UserMapper接口</strong></p>
+<ul>
+<li><pre><code class="java">package com.ccrt6.mapper;
+
+import com.ccrt6.bean.Userinfo;
+
+/**
+ * @author zh
+ * @Title: mapper
+ * @Package com.ccrt6.mapper
+ * @Description:接口
+ * @date 2022/6/28/20:32
+ */
+public interface UserMapper &#123;
+    /**
+     * 通过id查询指定的用户信息
+     * @param id
+     * @return
+     */
+    Userinfo findUserById(int id);
+&#125;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>编写我们自己的mapper映射文件</strong></p>
+<p><strong>在静态文件夹【resuorces】文件夹中新建-&gt;com.ccrt6.mapper-&gt;创建UserMapper.xml</strong></p>
+<ul>
+<li><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--
+    mapper映射文件：用于定制sql语句与指定接口中指定方法的映射
+    属性namespace：编写接口的全类名，就是告诉MyBatis这个mapper映射文件和哪个接口映射 
+--&gt;
+&lt;mapper namespace=&quot;com.ccrt6.mapper.UserMapper&quot;&gt;
+    &lt;!-- 在这里面编写 sql语句 与 接口方法 的映射 --&gt;
+    
+    &lt;!--&lt;select&gt;：表示这个操作是一个查询操作
+         属性id：表示的是要匹配的接口方法的名称
+         属性resultType：表示返回值的类型，对应接口方法的返回值类型。
+             查询操作完成后，mybatis会根据返回值类型，将数据封装成指定的对象。
+             这个步骤和jdbc中：根据结果集ResultSet中的数据封装成指定的对象 是一样的。
+         #&#123;属性名&#125;：获取接口中方法传递的实参，这里的属性名和接口方法的形参名保持一致，
+         否则就需要 进行其他的设置（后面会讲）。 
+       --&gt;
+
+    &lt;select id=&quot;findUserById&quot; resultType=&quot;com.ccrt6.bean.Userinfo&quot;&gt;
+        select * from user where id = #&#123;id&#125;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p><strong>静态文件中创建的com.ccrt6.mapper要与在src-&gt;main中创建的一致，在resources中创建mapper映射文件</strong></p>
+<p><strong>运行后会在target文件夹中自动生成</strong></p>
+<p><strong>【如果将映射文件放在src-&gt;main中运行后在target文件夹中则不会自动生成，会报错，因为运行的是target下的文件】</strong></p>
+<p><strong>为什么这里要这么做？其实这里存放mapper映射文件的方式主要有两种</strong></p>
+<p><strong>（1）将mapper映射文件和mapper接口放在同一个包下，但是maven不会编译java文件夹下的</strong></p>
+<p><strong>xml类型的静态资源文件，这样的话，一运行就会报错。解决方案：就是在pom.xml文件中，添加</strong></p>
+<p><strong>一个编译静态资源的插件，代码如下:</strong></p>
+<pre><code class="xml">&lt;build&gt; 
+    &lt;resources&gt; 
+        &lt;resource&gt; 
+            &lt;directory&gt;src/main/java&lt;/directory&gt; 
+            &lt;includes&gt; 
+            &lt;include&gt;**/*.xml&lt;/include&gt; 
+            &lt;/includes&gt; 
+        &lt;/resource&gt; 
+    &lt;/resources&gt; 
+&lt;/build&gt;
+</code></pre>
+<p><strong>（2）由于resources文件才是存放 静态资源的地方，所以我们可以在该文件下建立 同包名的文件</strong></p>
+<p><strong>夹，将xml等资源文件放置到这个目录中。maven工具默认在编译的时候，会将 该文件夹中的资</strong></p>
+<p><strong>源文件 和 同包名中java文件 一块编译在同一个文件夹中。</strong></p>
+<p><strong>比如：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ISDAY/FigureBed/image-20220630110124983.png" alt="image-20220630110124983"></p>
+<p><strong>相比之下，第二种方式比第一种方式要快捷。</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>在test-&gt;java下新建测试类Usermapper_test.java</strong></p>
+<ul>
+<li><pre><code class="java">import com.ccrt6.bean.Userinfo;
+import com.ccrt6.mapper.UserMapper;
+import com.ccrt6.utils.MybatisUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
+
+/**
+ * @author zh
+ * @Title: Usermapper_test
+ * @Package com.ccrt6.mapper
+ * @Description: Usermapper_test的测试类
+ * @date 2022/6/28/20:48
+ */
+public class Usermapper_test &#123;
+
+    @Test
+    public void testFindUserById()&#123;
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Userinfo userById = mapper.findUserById(1);
+        System.out.println(userById);
+        sqlSession.close();
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+<h2 id="掌握MyBatis的核心配置文件"><a href="#掌握MyBatis的核心配置文件" class="headerlink" title="掌握MyBatis的核心配置文件"></a><strong>掌握</strong>MyBatis<strong>的核心配置文件</strong></h2><p><strong>在mybatis的项目中，我们发现了有一个mybatis-config.xml的配置文件，这个配置文件是mybatis</strong></p>
+<p><strong>的全局配置文件，用来进行相关的全局配置，在任何操作下都生效的配置。下面我们要针对其中的属性</strong></p>
+<p><strong>做详细的解释，方便大家在后续使用的时候更加熟练。</strong></p>
+<p><strong>先编写一个外部配置文件，用来存储MySQL的连接信息：</strong></p>
+<p><strong>在resources新建db.properties</strong></p>
+<pre><code class="properties">jdbc.driver=com.mysql.cj.jdbc.Driver 
+jdbc.url=jdbc:mysql://localhost:3306/mybatis?serverTimezone=GMT&amp;useUnicode=true&amp;characterEncoding=utf8
+jdbc.username=root
+jdbc.password=root
+</code></pre>
+</li>
+</ol>
+<p>​		<strong>然后我们再来看看配置文件mybatis-config.xml的内容：</strong>		</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; 
+&lt;!DOCTYPE configuration 
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; 
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt; 
+&lt;configuration&gt; 
+
+    &lt;!--
+        引入外部配置文件 
+    --&gt; 
+    &lt;properties resource=&quot;db.properties&quot;&gt;&lt;/properties&gt; 
+    
+    &lt;!--
+        用来控制MyBatis在运行时的行为，是MyBatis中的重要配置 
+    --&gt; 
+    &lt;settings&gt; 
+        &lt;!--
+            当 数据表中的字段 在映射时，是否将字段名转化为采用了 驼峰原则的标识符 
+            即：将 user_name转换为 userName，这样可以减少resultMap的使用 
+            默认为 false，即不转换 
+        --&gt; 
+        &lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot;/&gt; 
+    &lt;/settings&gt; 
+    
+    &lt;!--
+        typeAliases表示为我们引用的实体类起别名，默认情况下我们需要写类的完全限定名 
+        如果在此处做了配置，那么可以直接写类的名称 
+    --&gt;
+    &lt;typeAliases&gt; 
+        &lt;!--
+        为某一个实体起别名： 
+        （1）在type中配置上类的完全限定名，此时类名就是别名，而且别名是可以忽略大小写的。 
+        （2）可以通过alias属性来表示类的别名，此时别名就是alias的属性值，不是类名 了！！！ 
+            注意：若不使用alias属性起别名，则是第（1）中情况，默认使用类名作为别名。
+         --&gt; 
+         &lt;typeAlias type=&quot;com.sys.bean.UserInfo&quot; alias=&quot;user&quot;&gt;&lt;/typeAlias&gt; 
+
+         &lt;!--
+            若有多个实体类，则可以使用批量起别名的方式（最常用的起别名的方法） 
+            属性name：指定包名，代表该包下面的所有类都批量起了别名 
+            注意：这里使用类名作为别名 
+         --&gt; 
+         &lt;package name=&quot;com.sys&quot;/&gt; 
+    &lt;/typeAliases&gt; 
+    
+    &lt;!--
+        在实际的开发过程中，我们可能分为开发环境，生产环境，测试环境等等，每个环境的配置可以是 不一样的。
+        &lt;environments&gt;：存放各个环境的配置，并使用 属性default 来设置当前的环境。 
+    --&gt; 
+    &lt;environments default=&quot;development&quot;&gt; 
+    &lt;!--
+        &lt;environment&gt;：用来表示不同环境的细节配置，每一个环境中都需要一个事务管理器以及数据源的配置 
+        我们在后续的项目开发中几乎都是使用spring中配置的数据源和事务管理器来配置，此处不需要研究 
+    --&gt; 
+    &lt;environment id=&quot;development&quot;&gt; 
+        &lt;!--
+            &lt;transactionManager&gt;：配置事务管理器，默认采用“JDBC” 
+        --&gt; 
+        &lt;transactionManager type=&quot;JDBC&quot;/&gt; 
+        &lt;!--
+            &lt;dataSource&gt;：配置数据源，默认采用“POOLED”(数据库连接池) 
+        --&gt; 
+        &lt;dataSource type=&quot;POOLED&quot;&gt; 
+            &lt;!--
+                &lt;property&gt;：配置连接数据库的四个参数 
+                由于四个参数的值放在外部配置文件db.properties当中， 
+                所以，需要使用 $&#123;属性名&#125; 来引入外部变量 
+            --&gt; 
+            &lt;!-- 这一项是配置mysql驱动的类路径 --&gt; 
+            &lt;property name=&quot;driver&quot; value=&quot;$&#123;jdbc.driver&#125;&quot;/&gt; 
+            &lt;!-- 配置mysql的url --&gt; 
+            &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot;/&gt; 
+            &lt;!-- 配置mysql的账号 --&gt; 
+            &lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot;/&gt; 
+            &lt;!-- 配置mysql的密码（记得使用自己的密码） --&gt; 
+            &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot;/&gt; 
+        &lt;/dataSource&gt; 
+    &lt;/environment&gt; 
+&lt;/environments&gt; 
+    &lt;!--
+        在不同的数据库中，可能sql语句的写法是不一样的，为了增强移植性，可以提供不同数据库的操作实现 
+        注意：在编写mapper映射文件中的sql语句时，可以指定databaseId属性来标识当前sql语句可以运行在哪个数据库中
+    --&gt; 
+    &lt;databaseIdProvider type=&quot;DB_VENDOR&quot;&gt; 
+        &lt;property name=&quot;MySQL&quot; value=&quot;mysql&quot;/&gt; 
+        &lt;property name=&quot;SQl Server&quot; value=&quot;sqlserver&quot;/&gt; 
+        &lt;property name=&quot;Oracle&quot; value=&quot;oracle&quot;/&gt; 
+    &lt;/databaseIdProvider&gt; 
+    
+    &lt;!--
+        &lt;mappers&gt;：我们需要在该标签中引入每一个Mapper映射文件 
+    --&gt; 
+    &lt;mappers&gt; 
+    &lt;!--
+        使用&lt;mapper&gt;引入指定的mapper映射文件 
+        resource属性：通过映射文件的 相对的物理路径 引入 
+        class属性：通过mapper接口的类路径，间接的引入 
+    --&gt; 
+&lt;!-- 	&lt;mapper resource=&quot;com/sys/mapper/UserMapper.xml&quot;&gt;&lt;/mapper&gt;--&gt; 
+&lt;!-- 	&lt;mapper class=&quot;com.sys.mapper.UserMapper&quot;&gt;&lt;/mapper&gt;--&gt; 
+
+    &lt;!--
+        当映射文件很多时，使用&lt;mapper&gt;标签一个个引入开会很麻烦，也费时间 
+        此时，我们可以使用&lt;package&gt;标签完成批量引入 
+        属性name：指定包的类路径 
+    --&gt; 
+    &lt;package name=&quot;com.sys.mapper&quot;/&gt;
+    
+    &lt;!--
+        关于属性class或者标签&lt;package&gt; 
+        原理：
+            1、在编译过后，程序开始运行； 
+            2、一开始会根据class属性值或者标签&lt;package&gt;中name属性值，获取指定接口的类路径； 
+            3、然后根据类路径利用反射，获取mapper接口的名字； 
+            4、然后根据mapper接口的名字在同一个文件夹下查找同名的Mapper映射文件，并引入。 
+            说明：
+                通过上述原理，可知要使用 class属性 和 &lt;package&gt; 标签需要保证，
+                mapper接口和mapper映射文件在编译过后，两者位于同一个文件夹下！！！ 
+            注意： 
+            （1）编译过后，当Mapper映射文件和mapper接口同名，并且在同一文件夹下时，可以使用 
+                &lt;mapper&gt;标签的class、resource属性，还可以使用&lt;package&gt;标签进行批量引入。 
+            （2）其他情况，只能使用 &lt;mapper&gt;标签的resource属性 
+     --&gt; 
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h1 id="备注：快捷键生成相应的代码"><a href="#备注：快捷键生成相应的代码" class="headerlink" title="备注：快捷键生成相应的代码"></a><strong>备注：快捷键生成相应的代码</strong></h1><p><strong>（1）Alt+Insert 快捷键生成 构造器：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ISDAY/FigureBed/image-20220630112704224.png" alt="image-20220630112704224"></p>
+<p><strong>（2）Alt+Insert 快捷键生成 get和set方法：</strong></p>
+<p><img src="/assets/MyBatis/image-20220630112816424-16570249899333.png" alt="image-20220630112816424"></p>
+<p><strong>（3）Alt+Insert 快捷键生成 toStringt方法：</strong></p>
+<p><img src="/assets/MyBatis/image-20220630112851257-16570249959615.png" alt="image-20220630112851257"></p>
+
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 ISDAY
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @ISDAY
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "", clientSecret = "";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "",
+        owner: "",
+        admin: [""],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: false,
+        
+    })
+    gitalk.render("gitalk-container")
+</script>
+
+
+    </body>
+</html>

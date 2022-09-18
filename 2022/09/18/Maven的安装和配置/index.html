@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Maven | ISDAY</title>
+        <meta name="author" content="ISDAY">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="avatar/avatar.png">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">ISDAY</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
+    </div>
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;ISDAY</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+                    </div>
+                    <div id="main">
+                        
+<div class="article">
+    <div>
+        <h1>Maven </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/9/18
+        </span>
+        
+        <span class="category">
+            <a href="/categories/SSM/">
+                <span class="icon">
+                    <svg class="fa-icon"><use xlink:href="#bookmark-solid"></use></svg>
+                </span>
+                SSM
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#tags-solid"></use></svg>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/maven/" style="color: #00bcd4">
+                    maven
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/SSM/" style="color: #ff7d73">
+                    SSM
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    <div class="content" v-pre>
+        <h1 id="MAVEN"><a href="#MAVEN" class="headerlink" title="MAVEN"></a>MAVEN</h1><ol>
+<li><h4 id="下载："><a href="#下载：" class="headerlink" title="下载："></a><strong>下载：</strong></h4><ul>
+<li><strong>官网：<a target="_blank" rel="noopener" href="https://maven.apache.org/">https://maven.apache.org/</a></strong></li>
+<li><strong>点击Download下载</strong></li>
+<li><img src="https://user-images.githubusercontent.com/77709357/175769287-595f3cf2-e3c4-4ba1-bebd-d576a61c4b37.png" alt="image-20220625173640440"></li>
+<li><img src="https://user-images.githubusercontent.com/77709357/175769357-0b6727c4-2c11-4a27-97fe-9ff29c479da6.png" alt="image-20220625173745475"></li>
+</ul>
+</li>
+<li><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h4><ul>
+<li><strong>maven压缩包解压到一个没有中文，空格或其他特殊字符的文件夹内即可使用。</strong></li>
+<li><img src="https://user-images.githubusercontent.com/77709357/175769418-01750bb4-c0a1-47ec-95b6-7184dbaa4a8b.png" alt="image-20220625174341793"></li>
+</ul>
+</li>
+<li><h4 id="配置MAVEN-HOME"><a href="#配置MAVEN-HOME" class="headerlink" title="配置MAVEN_HOME"></a>配置MAVEN_HOME</h4><ol>
+<li><p><strong>maven的使用是在jdk的基础上，所以电脑必须有jdk</strong></p>
+</li>
+<li><p><strong>新增环境变量：MAVEN_HOME</strong><img src="https://user-images.githubusercontent.com/77709357/175769442-f93e6a7f-123e-4460-9ff6-388223657c03.png" alt="image-20220625175015879"></p>
+</li>
+<li><p><strong>在系统变量点击新建</strong><img src="https://user-images.githubusercontent.com/77709357/175769488-39f026aa-59b0-4277-989b-54846d954605.png" alt="image-20220625175235990"><br> <img src="https://user-images.githubusercontent.com/77709357/175769567-8d1d8b0b-bab9-4a5e-bd09-cff98b916450.png" alt="image-20220625175305040"></p>
+<p>  <img src="https://user-images.githubusercontent.com/77709357/175769580-1d4f97df-3ff8-4b11-9b85-5a10ca874d6b.png" alt="image-20220625175410598"></p>
+</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/77709357/175769596-5c24e6ac-0062-4d41-aae8-d11487ed19f8.png" alt="image-20220625175448147"></p>
+<ol start="4">
+<li><p><strong>在path环境变量中添加：%MAVEN_HOME%\bin</strong><br><strong>找到环境变量配置界面</strong></p>
+<p> <img src="https://user-images.githubusercontent.com/77709357/175769614-12c7741c-397c-4be4-980f-3ea2f62a0b17.png" alt="image-20220625175726037"></p>
+<p> <img src="https://user-images.githubusercontent.com/77709357/175769627-8be30da1-5e5d-4acd-b73a-3a0cfc06818f.png" alt="image-20220625175804334"></p>
+</li>
+<li><p><strong>测试：按住win+R 输入cmd，进入黑窗口控制台。输入命令： mvn -v</strong><br><strong>如果出现以下maven的版本信息，则说明maven的安装与环境变量的配置均正确；</strong></p>
+</li>
+</ol>
+</li>
+<li><h4 id="配置仓库"><a href="#配置仓库" class="headerlink" title="配置仓库"></a>配置仓库</h4><ul>
+<li><p><strong>maven的仓库可以分为3种：</strong></p>
+<p><img src="https://user-images.githubusercontent.com/77709357/175769640-df6694a0-cae0-450f-91a2-49448088bdcb.png" alt="image-20220625180124043"></p>
+<ol>
+<li><p><strong>一：配置本地仓库</strong><br><strong>一般情况下，我们需要自己重新设置本地仓库的地址，设置方法如下：</strong></p>
+<p> <strong>第一步：在maven的安装目录下创建一个repository文件夹（一般习惯将仓库地址和maven安装目录放置在一起）</strong><img src="https://user-images.githubusercontent.com/77709357/175769648-6ca74ffd-1bb2-469d-abe3-906ad18b3076.png" alt="image-20220625180404372"></p>
+<p><strong>第二步：在核心配置文件setting.xml中，将仓库存放的位置设置成：D:\WorkSpace\apache-maven-3.6.1-bin\apache-maven-3.6.1\repository（以自己的安装路径为准）</strong></p>
+<p><strong>本地仓库的位置是通过maven的核心配置文件（settings.xml）来配置的。settings.xml文件位于maven安装目录：…\apache-maven-3.6.1\conf\settings.xml 。</strong></p>
+<p> <img src="https://user-images.githubusercontent.com/77709357/175769661-1c59abd0-db5f-49b4-b7d8-3321c9bc8aa3.png" alt="image-20220625180735997"></p>
+</li>
+<li><p><strong>二： 配置私服</strong></p>
+<p><strong>打开settins.xml文件，找到<mirrors>标签节点，在这个标签中添加一些配置信息中的任意一个：</strong></p>
+<p>【<strong>阿里云私服</strong>】</p>
+<pre><code class="xml">&lt;mirror&gt;
+     &lt;id&gt;nexus-aliyun&lt;/id&gt;
+     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+     &lt;name&gt;Nexus aliyun&lt;/name&gt;
+     &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+ &lt;/mirror&gt;
+</code></pre>
+<p> <img src="https://user-images.githubusercontent.com/77709357/175769730-8f1877ca-cc54-4620-a9d3-db8df5950d72.png" alt="image-20220625181135633"></p>
+</li>
+</ol>
+</li>
+</ul>
+<p>​</p>
+</li>
+</ol>
+
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2022 - 2022 ISDAY
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @ISDAY
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
+        
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+<script>
+    var clientID = "", clientSecret = "";
+    
+    const gitalk = new Gitalk({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        repo: "",
+        owner: "",
+        admin: [""],
+        language: "zh-CN",
+        id: location.pathname,
+        distractionFreeMode: false,
+        
+    })
+    gitalk.render("gitalk-container")
+</script>
+
+
+    </body>
+</html>
